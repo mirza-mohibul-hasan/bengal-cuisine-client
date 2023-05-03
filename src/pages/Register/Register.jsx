@@ -67,11 +67,11 @@ const Register = () => {
                 <p className='text-center text-red-700 text-xl font-semibold'>{errormsg}</p>
                 <p className='text-center text-green-700 text-xl font-semibold'>{successmsg}</p>
                 <h2 className='text-2xl font-bold text-center text-gray-700'>Sign Up With</h2>
-                <div>
+                <div className='flex justify-around mt-2'>
                     <button onClick={googleSignin} className='border p-2 rounded bg-amber-600 hover:bg-gray-400'>Google</button>
                     <button onClick={githubSignin} className='border p-2 rounded bg-amber-600 hover:bg-gray-400'>Github</button>
                 </div>
-                <h4 className='text-xl font-bold text-center text-gray-600'>Or</h4>
+                <h4 className=' font-bold text-center text-gray-600 my-2'>Or Using</h4>
                 <form onSubmit={handleRegister} className='flex flex-col gap-3'>
                     <input type="email" name="email" id="email" required placeholder='Your Email Address' className='bg-gray-100 px-5 py-2 rounded' />
 
@@ -83,7 +83,7 @@ const Register = () => {
 
                     <input type="submit" value="Sign Up" className='bg-amber-500 text-white font-semibold rounded' />
                 </form>
-                <h4>Already have an account? <Link to='/login' className='text-amber-600'>Login</Link></h4>
+                <h4 className='my-3'>Already have an account? <Link to='/login' className='text-amber-600'>Login</Link></h4>
             </div>
         </div>
     );
