@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ChefCard = (chef) => {
-    console.log(chef.chef)
+    // console.log(chef.chef)
     const { id, chefName, chefPicture, likes, numberOfRecipes, yearsOfExperience } = chef.chef;
     // console.log(chefName)
     return (
@@ -12,7 +13,7 @@ const ChefCard = (chef) => {
                 <h2 className="card-title">{chefName}</h2>
                 <p>Click the button to watch on Jetflix app.</p>
                 <div className="card-actions justify-end">
-                    <button className="btn bg-amber-500 border-none">View Recipie</button>
+                    <Link to={`/chef/${id}`}><button className="btn bg-amber-500 border-none">View Recipie</button></Link>
                 </div>
             </div>
         </div>
