@@ -31,7 +31,9 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
     //Github Signin
-
+    const handleGithubSignIn = ()=>{
+        return signInWithPopup(auth, githubProvider)
+    }
     //Google signin
     const handleGoogleSignIn = () => {
         return signInWithPopup(auth, googleProvider)
@@ -59,7 +61,8 @@ const AuthProvider = ({ children }) => {
         createUser,
         signIn,
         logOut,
-        handleGoogleSignIn
+        handleGoogleSignIn,
+        handleGithubSignIn
     }
     return (
         <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

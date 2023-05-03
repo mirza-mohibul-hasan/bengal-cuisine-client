@@ -4,12 +4,22 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
-    const {handleGoogleSignIn} = useContext(AuthContext);
+    const {handleGoogleSignIn, handleGithubSignIn} = useContext(AuthContext);
     const googleSignin = () =>{
         handleGoogleSignIn()
         .then(result => {
             const logedUser = result.user;
-            console.log(logedUser)
+            // console.log(logedUser)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
+    const githubSignin = () =>{
+        handleGithubSignIn()
+        .then(result => {
+            const logedUser = result.user;
+            // console.log(logedUser)
         })
         .catch(error => {
             console.log(error)
@@ -21,7 +31,7 @@ const Register = () => {
                 <h2 className='text-2xl font-bold text-center text-gray-700'>Sign Up With</h2>
                 <div>
                     <button onClick={googleSignin} className='border p-2 rounded bg-amber-600 hover:bg-gray-400'>Google</button>
-                    <button className='border p-2 rounded bg-amber-600 hover:bg-gray-400'>Github</button>
+                    <button onClick={githubSignin} className='border p-2 rounded bg-amber-600 hover:bg-gray-400'>Github</button>
                 </div>
                 <h4 className='text-xl font-bold text-center text-gray-600'>Or</h4>
                 <form className='flex flex-col gap-3'>
