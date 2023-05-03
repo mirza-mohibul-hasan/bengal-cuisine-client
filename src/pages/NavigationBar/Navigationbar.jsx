@@ -2,7 +2,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
-
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
 const Navigationbar = () => {
     const { logOut, user } = useContext(AuthContext)
     const handleLogOut = () => {
@@ -19,13 +20,16 @@ const Navigationbar = () => {
             </div>
             <div className='flex justify-center'>
                 {
-                    user && <button className='w-8'>
+                    user && <button data-tooltip-id="my-tooltip" 
+                    data-tooltip-content={user?.displayName} 
+                    data-tooltip-place="top" className='w-8'>
+                        <Tooltip id="my-tooltip" />
                         <img src={user?.photoURL} className='rounded' alt="" />
                     </button>
                 }
                 {
-                    user?<button onClick={handleLogOut} className='bg-amber-500 py-1 px-2 mx-1 rounded hover:bg-gray-500 font-semibold mt-5 md:my-0 text-white'>Logout</button>:
-                    <Link to='/login'><button className='bg-amber-500 py-1 px-2 mx-1 rounded hover:bg-gray-500 font-semibold mt-5 md:my-0 text-white'>Login</button></Link>
+                    user?<button onClick={handleLogOut} className='bg-amber-500 py-1 px-2 mx-1 rounded hover:bg-gray-500 font-semibold md:my-0 text-white'>Logout</button>:
+                    <Link to='/login'><button className='bg-amber-500 py-1 px-2 mx-1 rounded hover:bg-gray-500 font-semibold md:my-0 text-white'>Login</button></Link>
                 }
             </div>
         </nav>
