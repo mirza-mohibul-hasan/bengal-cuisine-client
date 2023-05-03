@@ -22,7 +22,8 @@ const AuthProvider = ({ children }) => {
     }
     const updateUserData = (user, name, photo) => {
         updateProfile(user, {
-            displayName: name
+            displayName: name,
+            photoURL: photo
         })
     }
     //Email Password Signin
@@ -62,7 +63,8 @@ const AuthProvider = ({ children }) => {
         signIn,
         logOut,
         handleGoogleSignIn,
-        handleGithubSignIn
+        handleGithubSignIn,
+        updateUserData
     }
     return (
         <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
