@@ -1,17 +1,22 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
     const {handleGoogleSignIn, handleGithubSignIn, signIn} = useContext(AuthContext);
     const [errormsg, setErrormsg] = useState('');
     const [successmsg, setSuccessmsg] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
+
     const googleSignin = () =>{
         handleGoogleSignIn()
         .then(result => {
             const logedUser = result.user;
             // console.log(logedUser)
+            navigate(from, { replace: true })
         })
         .catch(error => {
             console.log(error)
@@ -23,6 +28,7 @@ const Login = () => {
         .then(result => {
             const logedUser = result.user;
             // console.log(logedUser)
+            navigate(from, { replace: true })
         })
         .catch(error => {
             console.log(error)
@@ -41,7 +47,8 @@ const Login = () => {
                 const loggedUser = result.user;
                 setErrormsg('')
                 // console.log(loggedUser);
-                // navigate(from, { replace: true })
+                navigate(from, { replace: true })
+                // navigate('/')
             })
             .catch(error => {
                 console.log(error);
