@@ -17,7 +17,7 @@ const Home = () => {
                     <img className='rounded-2xl' src='https://www.denbypottery.com/file/v8807526844468382865/general/LIC-Headers-mobile-Food.jpg' alt="" />
                 </div>
             </div>
-            <div>
+            <div className='mt-4 mx-3 md:mx-56 grid grid-cols-1 md:grid-cols-2'>
                 {
                     chefs.map(chef => <ChefCard key={chef.id} chef = {chef}></ChefCard>)
                 }
