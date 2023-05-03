@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
-    const {handleGoogleSignIn, handleGithubSignIn} = useContext(AuthContext);
+    const {handleGoogleSignIn, handleGithubSignIn, signIn} = useContext(AuthContext);
     const googleSignin = () =>{
         handleGoogleSignIn()
         .then(result => {
@@ -25,6 +25,23 @@ const Login = () => {
             console.log(error)
         })
     }
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+
+        signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                // navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
     return (
         <div className='flex justify-center items-center' style={{}}>
             <div className='p-5 m-5 w-1/5' style={{ border: '2px solid rgb(255, 255, 153)' }}>
@@ -34,7 +51,7 @@ const Login = () => {
                     <button onClick={githubSignin} className='border p-2 rounded bg-amber-600 hover:bg-gray-400'>Github</button>
                 </div>
                 <h4 className='text-xl font-bold text-center text-gray-600'>Or</h4>
-                <form className='flex flex-col gap-3'>
+                <form onSubmit={handleLogin} className='flex flex-col gap-3'>
                     <input type="email" name="email" id="email" required placeholder='Email address' className='bg-gray-100 px-5 py-2 rounded'/>
 
                     <input type="password" name="password" id="password" required placeholder='Your password' className='bg-gray-100 px-5 py-2 rounded'/>
