@@ -13,7 +13,7 @@ const Navigationbar = () => {
                 <Link to='/blog' className='font-bold mx-5 my-2 md:my-0 hover:text-amber-500'>Blogs</Link>
             </div>
             <div>
-                <button className='bg-amber-500 py-1 px-2 mx-1 rounded hover:bg-gray-500 font-semibold mt-5 md:my-0 text-white'>Login</button>
+                <Link to='/login'><button className='bg-amber-500 py-1 px-2 mx-1 rounded hover:bg-gray-500 font-semibold mt-5 md:my-0 text-white'>Login</button></Link>
                 <button className='bg-amber-500 py-1 px-2 mx-1 rounded hover:bg-gray-500 font-semibold mt-5 md:my-0 text-white'>Logout</button>
             </div>
         </nav>
