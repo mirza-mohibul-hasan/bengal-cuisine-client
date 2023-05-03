@@ -13,7 +13,7 @@ const RecipeDetails = ({recipe}) => {
                         ingredients.map(ing => <p key={ing} className='flex items-center gap-3'><FaYoast></FaYoast> <>{ing}</></p>)
                     }
                     <p><b>Method of cocking:</b> {method}</p>
-                    <p><b>Rating:</b> {rating}</p>
+                    <p><b>Rating:</b> {rating}/5</p>
                     <button className='bg-amber-500 font-semibold text-white py-1 px-2 rounded-md mt-2 hover:bg-gray-500'>Add to Favourite</button>
                 </div>
                 <div className='flex-1'>

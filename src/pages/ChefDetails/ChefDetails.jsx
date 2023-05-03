@@ -24,10 +24,10 @@ const ChefDetails = () => {
                 </div> */}
                 <div className="card bg-base-100 shadow-2xl border-t-2">
                     <figure>
-                        <img className='w-2/5 rounded-3xl mt-5' src={chefPicture} alt="Chef" />
+                        <img className='w-1/4 rounded-3xl mt-5' src={chefPicture} alt="Chef" />
                     </figure>
                     <div className="card-body">
-                        <h2 className="card-title text-xl font-bold my-1 text-amber-500">{chefName}</h2>
+                        <h2 className="card-title text-2xl font-bold my-1 text-amber-500">{chefName}</h2>
                         <p><b>Biography:</b> {shortBio}</p>
                         <p><b>Exprience:</b> {yearsOfExperience} Years</p>
                         <p><b>Total Recipes:</b> {numberOfRecipes}</p>
@@ -36,6 +36,7 @@ const ChefDetails = () => {
                 </div>
             </div>
             <div>
+                <h1 className='text-5xl font-bold my-3 text-center'>Recipes of {chefName}</h1>
                 {
                     recipes.map(recipe => <RecipeDetails recipe={recipe} key={recipe.recipeId}></RecipeDetails>)
                 }
