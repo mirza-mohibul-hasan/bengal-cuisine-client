@@ -9,12 +9,12 @@ const Navigationbar = () => {
                 <h1 className='text-3xl font-bold'>Easy Cusine</h1>
             </div>
             <div className='font-semibold grid grid-cols-2 md:grid-cols-4'>
-                <Link to='/' className='mx-5 my-2 md:my-0 hover:text-[#7E90FE]'>Home</Link>
-                <Link to='/blog' className='mx-5 my-2 md:my-0 hover:text-[#7E90FE]'>Blog</Link>
+                <Link to='/' className='font-bold mx-5 my-2 md:my-0 hover:text-amber-500'>Home</Link>
+                <Link to='/blog' className='font-bold mx-5 my-2 md:my-0 hover:text-amber-500'>Blogs</Link>
             </div>
             <div>
-                <button className='bg-amber-500 mt-5 md:my-0 text-white'>Login</button>
-                <button className='bg-amber-500 mt-5 md:my-0 text-white'>Logout</button>
+                <button className='bg-amber-500 py-1 px-2 mx-1 rounded hover:bg-gray-500 font-semibold mt-5 md:my-0 text-white'>Login</button>
+                <button className='bg-amber-500 py-1 px-2 mx-1 rounded hover:bg-gray-500 font-semibold mt-5 md:my-0 text-white'>Logout</button>
             </div>
         </nav>
     );
