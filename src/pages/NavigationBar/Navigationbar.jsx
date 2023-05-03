@@ -23,8 +23,10 @@ const Navigationbar = () => {
                         <img src={user?.photoURL} className='rounded' alt="" />
                     </button>
                 }
-                <Link to='/login'><button className='bg-amber-500 py-1 px-2 mx-1 rounded hover:bg-gray-500 font-semibold mt-5 md:my-0 text-white'>Login</button></Link>
-                <button onClick={handleLogOut} className='bg-amber-500 py-1 px-2 mx-1 rounded hover:bg-gray-500 font-semibold mt-5 md:my-0 text-white'>Logout</button>
+                {
+                    user?<button onClick={handleLogOut} className='bg-amber-500 py-1 px-2 mx-1 rounded hover:bg-gray-500 font-semibold mt-5 md:my-0 text-white'>Logout</button>:
+                    <Link to='/login'><button className='bg-amber-500 py-1 px-2 mx-1 rounded hover:bg-gray-500 font-semibold mt-5 md:my-0 text-white'>Login</button></Link>
+                }
             </div>
         </nav>
     );
