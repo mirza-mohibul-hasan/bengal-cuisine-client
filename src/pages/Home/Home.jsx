@@ -17,7 +17,8 @@ const Home = () => {
                 </div>
             </div>
             {/* Chef card */}
-            <div className='mt-4 mx-3 py-5 md:mx-56 grid grid-cols-1 md:grid-cols-2 gap-5' style={{ borderTop: '2px solid yellow' }}>
+            <h1 className='text-amber-500 text-2xl text-center font-bold my-2 pt-5' style={{ borderTop: '2px solid yellow' }}>Famous Bengali Chefs</h1>
+            <div className='mt-4 mx-3 py-5 md:mx-56 grid grid-cols-1 md:grid-cols-2 gap-5' >
                 {
                     chefs.map(chef => <ChefCard key={chef.id} chef={chef}></ChefCard>)
                 }
