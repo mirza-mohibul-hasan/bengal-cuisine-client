@@ -25,8 +25,7 @@ const ChefDetails = () => {
                 </div> */}
                 <div className="card bg-base-100 shadow-2xl border-t-2">
                     <figure>
-
-                        <LazyLoad className='w-1/4 rounded-3xl mt-5'>
+                        <LazyLoad offset={300} className='w-1/4 mt-5'>
                             <img className='rounded-3xl mt-5' src={chefPicture} alt="Chef" />
                         </LazyLoad>
                     </figure>

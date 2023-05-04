@@ -57,7 +57,7 @@ const Login = () => {
     }
     return (
         <div className='flex justify-center items-center' style={{}}>
-            <div className='p-5 m-5 w-1/5 rounded-xl' style={{ border: '2px solid rgb(255, 255, 153)' }}>
+            <div className='p-5 m-5 md:w-1/5 rounded-xl' style={{ border: '2px solid rgb(255, 255, 153)' }}>
             <p className='text-center text-red-700 text-xl font-semibold'>{errormsg}</p>
                 <h2 className='text-2xl font-bold text-center text-gray-700 my-3'>Sign In With</h2>
                 <div className='flex justify-around mt-2'>

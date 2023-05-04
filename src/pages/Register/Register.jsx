@@ -22,7 +22,7 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, photo, email, password)
+        // console.log(name, photo, email, password)
 
         if (password.length < 6) {
             setErrormsg('Give at least six charcter');
@@ -40,7 +40,7 @@ const Register = () => {
                 updateUserData(userCredential.user, name, photo)
 
                 logOut()
-                navigate('/')
+                navigate('/login')
             })
             .catch(error => {
                 console.error(error.message)
