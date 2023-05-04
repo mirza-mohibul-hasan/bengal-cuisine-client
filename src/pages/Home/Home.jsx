@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ChefCard from '../ChefCard/ChefCard';
-
 const Home = () => {
     const chefs = useLoaderData();
     // console.log(chefs);

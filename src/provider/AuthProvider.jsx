@@ -21,6 +21,7 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
     const updateUserData = (user, name, photo) => {
+        setLoading(true);
         updateProfile(user, {
             displayName: name,
             photoURL: photo
@@ -33,10 +34,12 @@ const AuthProvider = ({ children }) => {
     }
     //Github Signin
     const handleGithubSignIn = ()=>{
+        setLoading(true);
         return signInWithPopup(auth, githubProvider)
     }
     //Google signin
     const handleGoogleSignIn = () => {
+        setLoading(true);
         return signInWithPopup(auth, googleProvider)
     }
 

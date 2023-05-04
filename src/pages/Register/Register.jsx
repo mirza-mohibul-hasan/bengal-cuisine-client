@@ -1,30 +1,14 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
-    const { handleGoogleSignIn, handleGithubSignIn, createUser, updateUserData } = useContext(AuthContext);
-    const googleSignin = () => {
-        handleGoogleSignIn()
-            .then(result => {
-                const logedUser = result.user;
-                // console.log(logedUser)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
-    const githubSignin = () => {
-        handleGithubSignIn()
-            .then(result => {
-                const logedUser = result.user;
-                // console.log(logedUser)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
+    const { createUser, updateUserData, logOut } = useContext(AuthContext);
     //Email Password Register
     const [errormsg, setErrormsg] = useState('');
     const [successmsg, setSuccessmsg] = useState('');
@@ -40,8 +24,8 @@ const Register = () => {
         const password = form.password.value;
         console.log(name, photo, email, password)
 
-        if(password.length <6){
-            setErrormsg('Less 6');
+        if (password.length < 6) {
+            setErrormsg('Give at least six charcter');
             return;
         }
 
@@ -54,6 +38,9 @@ const Register = () => {
 
                 //update data
                 updateUserData(userCredential.user, name, photo)
+
+                logOut()
+                navigate('/')
             })
             .catch(error => {
                 console.error(error.message)
@@ -66,12 +53,7 @@ const Register = () => {
             <div className='p-5 m-5 w-1/5' style={{ border: '2px solid rgb(255, 255, 153)' }}>
                 <p className='text-center text-red-700 text-xl font-semibold'>{errormsg}</p>
                 <p className='text-center text-green-700 text-xl font-semibold'>{successmsg}</p>
-                <h2 className='text-2xl font-bold text-center text-gray-700'>Sign Up With</h2>
-                <div className='flex justify-around mt-2'>
-                    <button onClick={googleSignin} className='border p-2 rounded bg-amber-600 hover:bg-gray-400'>Google</button>
-                    <button onClick={githubSignin} className='border p-2 rounded bg-amber-600 hover:bg-gray-400'>Github</button>
-                </div>
-                <h4 className=' font-bold text-center text-gray-600 my-2'>Or Using</h4>
+                <h2 className='text-2xl font-bold text-center text-gray-700 mb-10'>Sign Up With</h2>
                 <form onSubmit={handleRegister} className='flex flex-col gap-3'>
                     <input type="email" name="email" id="email" required placeholder='Your Email Address' className='bg-gray-100 px-5 py-2 rounded' />
 
@@ -79,7 +61,7 @@ const Register = () => {
 
                     <input type="text" name="name" id="name" placeholder='Your Name' className='bg-gray-100 px-5 py-2 rounded' />
 
-                    <input type="text" name="photo" id="photourl" required placeholder='Your Photo URL' className='bg-gray-100 px-5 py-2 rounded' />
+                    <input type="text" name="photo" id="photourl" placeholder='Your Photo URL' className='bg-gray-100 px-5 py-2 rounded' />
 
                     <input type="submit" value="Sign Up" className='bg-amber-500 text-white font-semibold rounded' />
                 </form>
