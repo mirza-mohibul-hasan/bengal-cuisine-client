@@ -8,7 +8,7 @@ const ChefCard = (chef) => {
     const { id, chefName, chefPicture, likes, numberOfRecipes, yearsOfExperience } = chef.chef;
     // console.log(chefName)
     return (
-        <div className="card card-side bg-base-100 shadow-xl m-5 p-3 flex flex-col md:flex-row" style={{ border: '2px solid rgb(255, 255, 153)' }}>
+        <div className="card card-side bg-base-100 shadow-xl  p-3 flex flex-col md:flex-row" style={{ border: '2px solid rgb(255, 255, 153)' }}>
             <figure >
                 <img className='h-56 w-64 md:w-52 rounded' src={chefPicture} alt="Chef" />
                 </figure>
