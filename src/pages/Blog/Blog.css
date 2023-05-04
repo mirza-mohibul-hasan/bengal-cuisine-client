@@ -1,0 +1,37 @@
+.extrablog-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+.extrablog-parent{
+    border: 1px solid rgb(255, 179, 0);
+    padding: 20px;
+    border-radius: 20px;
+    /* margin: 30px 0; */
+    background: rgba(255, 179, 0, 0.315)
+}
+.qa-title{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 0px;
+}
+.extrablog{
+    /* border: .5px solid #6047EC; */
+    padding: 20px;
+    border-radius: 20px;
+    background-color: white;
+}
+h4{
+    font-size: 20px;
+    font-weight: 600;
+}
+@media screen and (max-width:576px) {
+    .extrablog-container{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .qa-title{
+        font-size: 30px;
+    }
+}

@@ -3,7 +3,23 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className='mt-4 mx-3 md:mx-56 '>
+        <div className='mt-4 mx-3 md:mx-56 bg-amber-100 rounded p-20 flex justify-around' >
+            <div>
+                <h4>Company</h4>
+                <div>
+                    <p>About Us</p>
+                    <p>Contact</p>
+                </div>
+            </div>
+            <div>
+                <div className="flex">
+                    <input type="text" placeholder="username@site.com" className="px-5 py-2 rounded" />
+                    <button className="bg-amber-400 text-white p-2 rounded">Subscribe</button>
+                </div>
+            </div>
+            <div>
+
+            </div>
             {/* <footer className="footer p-10 bg-base-200 text-base-content rounded-2xl mx-3">
                 <div>
                     <span className="footer-title">Company</span>
