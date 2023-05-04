@@ -50,10 +50,10 @@ const Register = () => {
     }
     return (
         <div className='flex justify-center items-center' style={{}}>
-            <div className='p-5 m-5 w-1/5' style={{ border: '2px solid rgb(255, 255, 153)' }}>
+            <div className='p-5 m-5 md:w-1/5 rounded' style={{ border: '2px solid rgb(255, 255, 153)' }}>
                 <p className='text-center text-red-700 text-xl font-semibold'>{errormsg}</p>
                 <p className='text-center text-green-700 text-xl font-semibold'>{successmsg}</p>
-                <h2 className='text-2xl font-bold text-center text-gray-700 mb-10'>Sign Up With</h2>
+                <h2 className='text-2xl font-bold text-center text-gray-700 mb-5'>Sign Up With</h2>
                 <form onSubmit={handleRegister} className='flex flex-col gap-3'>
                     <input type="email" name="email" id="email" required placeholder='Your Email Address' className='bg-gray-100 px-5 py-2 rounded' />
 
@@ -65,7 +65,7 @@ const Register = () => {
 
                     <input type="submit" value="Sign Up" className='bg-amber-500 text-white font-semibold rounded' />
                 </form>
-                <h4 className='my-3'>Already have an account? <Link to='/login' className='text-amber-600'>Login</Link></h4>
+                <h4 className='my-3 text-sm text-gray-500'>Already have an account? <Link to='/login' className='text-amber-600'>Login</Link></h4>
             </div>
         </div>
     );

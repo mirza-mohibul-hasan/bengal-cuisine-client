@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <div className='my-4 mx-3 md:mx-56 bg-amber-100 rounded p-4 md:px-20 md:py-10' >
             <div className='flex justify-around items-center flex-col md:flex-row'>
-                <h4 className='text-3xl text-gray-600 font-bold'>Bengal Dine</h4>
+                <h4 className='text-3xl text-gray-600 font-bold'>Bengal Cusine</h4>
                 <Link className='text-cl font-semibold text-gray-500'>About Us</Link>
                 <Link className='text-cl font-semibold text-gray-500'>Awards</Link>
                 <Link className='text-cl font-semibold text-gray-500'>Contact</Link>

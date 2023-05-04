@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { FaListUl, FaYoast } from 'react-icons/fa';
+import { FaArrowCircleRight, FaListUl, FaYoast } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 const RecipeDetails = ({ recipe }) => {
@@ -21,12 +21,12 @@ const RecipeDetails = ({ recipe }) => {
         setFavourite(!favourite)
     }
     return (
-        <div className='mt-4 mx-3 md:mx-56 gap-5 md:flex items-center p-5 shadow-xl rounded' style={{ borderTop: '2px solid yellow' }}>
+        <div className='mt-4 mx-3 md:mx-56 gap-5 flex flex-col-reverse md:flex-row items-center p-5 shadow-xl rounded' style={{ borderTop: '2px solid yellow' }}>
             <div className='flex-1'>
                 <h1 className='text-xl font-bold my-3 text-amber-500'>{recipeName}</h1>
-                <p className='flex'><b><FaListUl></FaListUl> Ingredients are:</b></p>
+                <p className='flex items-center gap-2'><FaListUl></FaListUl><b> Required Ingredients Are:</b></p>
                 {
-                    ingredients.map(ing => <p key={ing} className='flex items-center gap-3'><FaYoast></FaYoast> <>{ing}</></p>)
+                    ingredients.map(ing => <li key={ing} className='flex items-center gap-3'><FaArrowCircleRight></FaArrowCircleRight> <>{ing}</></li>)
                 }
                 <p><b>Method of cocking:</b> {method}</p>
                 <p><b>Rating:</b> {rating}/5</p>
