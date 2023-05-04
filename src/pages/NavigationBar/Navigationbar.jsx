@@ -11,7 +11,8 @@ const Navigationbar = () => {
         logOut();
     }
     return (
-        <nav className='mt-4 mx-3 md:mx-56 md:flex justify-between items-center text-center'>
+        <nav className='mt-4 mx-3 md:mx-56 md:flex justify-between items-center text-center '>
+            
             <div>
                 <h1 className='text-3xl font-bold'>Bengal Cusine</h1>
             </div>

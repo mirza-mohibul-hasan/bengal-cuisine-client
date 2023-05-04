@@ -12,20 +12,9 @@ const ChefDetails = () => {
     return (
         <>
             <div className='mt-4 mx-3 md:mx-56 p-5' style={{ borderTop: '2px solid yellow' }}>
-                {/* <div>
-                    <h1 className='text-xl font-bold my-3 text-amber-500'>{chefName}</h1>
-                    <p><b>Biography:</b> {shortBio}</p>
-                    <p><b>Exprience:</b> {yearsOfExperience}</p>
-                    <p><b>Total Recipes:</b> {numberOfRecipes}</p>
-                    <p><b>Likes:</b> {likes}</p>
-                    
-                </div>
-                <div>
-                    <img className='rounded-2xl' src={chefPicture} alt="" />
-                </div> */}
                 <div className="card bg-base-100 shadow-2xl border-t-2">
                     <figure>
-                        <LazyLoad offset={300} className='w-1/4 mt-5'>
+                        <LazyLoad offset={300} className=' w-2/4 mt-5'>
                             <img className='rounded-3xl mt-5' src={chefPicture} alt="Chef" />
                         </LazyLoad>
                     </figure>
