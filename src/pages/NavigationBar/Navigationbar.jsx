@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
+import './NavigationBar.css'
 const Navigationbar = () => {
     const { logOut, user } = useContext(AuthContext)
     const handleLogOut = () => {
@@ -15,15 +16,15 @@ const Navigationbar = () => {
                 <h1 className='text-3xl font-bold'>Easy Cusine</h1>
             </div>
             <div className='font-semibold grid grid-cols-2 md:grid-cols-4'>
-                <Link to='/' className='font-bold mx-5 my-2 md:my-0 hover:text-amber-500'>Home</Link>
-                <Link to='/blog' className='font-bold mx-5 my-2 md:my-0 hover:text-amber-500'>Blogs</Link>
+                <NavLink to='/' className='font-bold mx-5 my-2 md:my-0 hover:text-amber-500'>Home</NavLink>
+                <NavLink to='/blog' className='font-bold mx-5 my-2 md:my-0 hover:text-amber-500'>Blogs</NavLink>
             </div>
             <div className='flex justify-center'>
                 {
                     user && <button data-tooltip-id="my-tooltip" 
                     data-tooltip-content={user?.displayName} 
-                    data-tooltip-place="top" className='w-8'>
-                        <Tooltip id="my-tooltip" />
+                    data-tooltip-place="left" className='w-8'>
+                        <Tooltip id="my-tooltip"  className='example'/>
                         <img src={user?.photoURL} className='rounded' alt="" />
                     </button>
                 }

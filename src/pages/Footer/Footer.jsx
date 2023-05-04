@@ -4,7 +4,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <div className='mt-4 mx-3 md:mx-56 '>
-            <footer className="footer p-10 bg-base-200 text-base-content rounded-2xl mx-3">
+            {/* <footer className="footer p-10 bg-base-200 text-base-content rounded-2xl mx-3">
                 <div>
                     <span className="footer-title">Company</span>
                     <a className="link link-hover">About us</a>
@@ -24,7 +24,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-            </footer>
+            </footer> */}
         </div>
     );
 };

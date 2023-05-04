@@ -1,0 +1,10 @@
+.example {
+    color: white;
+    font-weight: 600;
+    background-color: rgb(255, 179, 0);
+}
+.active{
+    border: 1px solid rgb(255, 179, 0);
+    padding: 0 2px;
+    border-radius: 8px;
+}
