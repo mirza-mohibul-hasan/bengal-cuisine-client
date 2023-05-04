@@ -9,7 +9,9 @@ const ChefCard = (chef) => {
     // console.log(chefName)
     return (
         <div className="card card-side bg-base-100 shadow-xl m-5 p-3 flex flex-col md:flex-row" style={{ border: '2px solid rgb(255, 255, 153)' }}>
-            <figure ><img className='h-56 w-64 md:w-52 rounded' src={chefPicture} alt="Chef" /></figure>
+            <figure >
+                <img className='h-56 w-64 md:w-52 rounded' src={chefPicture} alt="Chef" />
+                </figure>
             <div className="card-body">
                 <h2 className="card-title text-amber-600 text-2xl">{chefName}</h2>
                 <p><b>Exprience:</b> {yearsOfExperience} Years</p>

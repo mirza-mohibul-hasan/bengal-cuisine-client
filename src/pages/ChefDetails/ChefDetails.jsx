@@ -3,6 +3,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import RecipeDetails from '../RecipeDetails/RecipeDetails';
 import { AiFillLike } from "react-icons/ai";
+import LazyLoad from 'react-lazy-load';
 const ChefDetails = () => {
     const chefDetails = useLoaderData();
     const { id, chefName, chefPicture, likes, numberOfRecipes, yearsOfExperience, shortBio, recipes } = chefDetails[0];
@@ -24,7 +25,10 @@ const ChefDetails = () => {
                 </div> */}
                 <div className="card bg-base-100 shadow-2xl border-t-2">
                     <figure>
-                        <img className='w-1/4 rounded-3xl mt-5' src={chefPicture} alt="Chef" />
+
+                        <LazyLoad className='w-1/4 rounded-3xl mt-5'>
+                            <img className='rounded-3xl mt-5' src={chefPicture} alt="Chef" />
+                        </LazyLoad>
                     </figure>
                     <div className="card-body">
                         <h2 className="card-title text-2xl font-bold my-1 text-amber-500">{chefName}</h2>
