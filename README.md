@@ -1,4 +1,4 @@
-## Career Starter
+## Bengal Cuisine
 This Project is created with ReactJS and React Router.
 The following project has some features such as-
 * Online Recipe Tutorials

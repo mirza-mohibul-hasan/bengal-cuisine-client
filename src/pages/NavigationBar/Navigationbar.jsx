@@ -13,7 +13,7 @@ const Navigationbar = () => {
     return (
         <nav className='mt-4 mx-3 md:mx-56 md:flex justify-between items-center text-center'>
             <div>
-                <h1 className='text-3xl font-bold'>Easy Cusine</h1>
+                <h1 className='text-3xl font-bold'>Bengal Cusine</h1>
             </div>
             <div className='font-semibold grid grid-cols-2 md:grid-cols-4'>
                 <NavLink to='/' className='font-bold mx-5 my-2 md:my-0 hover:text-amber-500'>Home</NavLink>
