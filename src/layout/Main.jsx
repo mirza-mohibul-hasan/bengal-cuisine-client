@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext } from 'react';
 import Navigationbar from '../pages/NavigationBar/Navigationbar';
 import { Outlet, useNavigation } from 'react-router-dom';
 import Footer from '../pages/Footer/Footer';
 import { RiseLoader } from 'react-spinners';
 import { ToastContainer } from 'react-toastify';
+import { AuthContext } from '../provider/AuthProvider';
 const Main = () => {
     const navigation = useNavigation();
     return (

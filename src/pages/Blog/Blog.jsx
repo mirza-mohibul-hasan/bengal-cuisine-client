@@ -3,9 +3,9 @@
 import React, { createRef } from 'react';
 import './Blog.css'
 import Pdf from "react-to-pdf";
-// eslint-disable-next-line react-hooks/rules-of-hooks
 const ref = createRef();
 const Blog = () => {
+    // Options for Mobile and Desktop documents download
     const options = {
         orientation: 'landscape',
         unit: 'in',
@@ -18,10 +18,11 @@ const Blog = () => {
     };
     return (
         <>
+        {/* Download Button */}
             <div className='mt-4 mx-3 my-5 md:mx-56 flex justify-center'>
                 <div className='hidden md:block'>
                     <Pdf targetRef={ref} filename="blogs.pdf" options={options} x={1} y={1} scale={1}>
-                        {({ toPdf }) => <button onClick={toPdf} className='bg-amber-500 py-1 px-2 mx-1 rounded hover:bg-gray-500 font-semibold md:my-0 text-white'>Create Document</button>}
+                        {({ toPdf }) => <button onClick={toPdf} className='bg-amber-500 py-1 px-2 mx-1 rounded hover:bg-gray-500 font-semibold md:my-0 text-white'>Download PDF</button>}
                     </Pdf>
                 </div>
                 <div className='block md:hidden'>
@@ -30,7 +31,7 @@ const Blog = () => {
                     </Pdf>
                 </div>
             </div>
-
+            {/* Blog of Question and Answer */}
             <div className='extrablog-parent mt-4 mx-3 my-5 md:mx-56' ref={ref}>
                 <h1 className='qa-title'>Question and Answers</h1>
                 <div className='extrablog-container'>

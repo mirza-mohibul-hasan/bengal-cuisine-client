@@ -43,15 +43,15 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider)
     }
-
-    const logOut = () => {
+    // Log Out
+    const logOut = (value = true) => {
         setLoading(true);
-        successToast('Logout Successfull')
+        (value == true)&&successToast('Logout Successfull')
         return signOut(auth);
     }
+    // Getting user
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, loggedUser => {
-            // console.log('logged in user inside auth state observer', loggedUser)
             setUser(loggedUser);
             setLoading(false);
         })
@@ -60,10 +60,11 @@ const AuthProvider = ({ children }) => {
             unsubscribe();
         }
     }, [])
+    // Common Success Toast
     const successToast = (message) => {
         toast.success(`${message}`, {
             position: "top-center",
-            autoClose: 3000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -72,19 +73,7 @@ const AuthProvider = ({ children }) => {
             theme: "light",
         });
     }
-    const errorToast = (message) => {
-        toast.error(`${message}`, {
-            position: "top-center",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
-    }
-
+    // Send Auth context
     const authInfo = {
         user,
         loading,
@@ -94,8 +83,7 @@ const AuthProvider = ({ children }) => {
         handleGoogleSignIn,
         handleGithubSignIn,
         updateUserData,
-        successToast,
-        errorToast
+        successToast
     }
     return (
         <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

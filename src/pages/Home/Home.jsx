@@ -1,12 +1,25 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import ChefCard from '../ChefCard/ChefCard';
 import Marquee from "react-fast-marquee";
+import { RiseLoader } from 'react-spinners';
 const Home = () => {
     const chefs = useLoaderData();
+    // Show Spinner on browser reload
+    const [showSpinner, setShowSpinner] = useState(false);
+    useEffect(() => {
+        window.onbeforeunload = () => setShowSpinner(true);
+        return () => {
+            window.onbeforeunload = null;
+        };
+    }, []);
     return (
-        <>
+        <> 
+            {/* Show Spinner on browser reload */}
+            {
+                showSpinner && <RiseLoader color="rgb(217 119 6)" className='text-center my-24' />
+            }
             <div className='mt-4 mx-3 md:mx-56 md:flex items-center p-5' style={{ borderTop: '2px solid yellow' }}>
                 <div className='md:w-[60%]'>
                     <h1 className='text-5xl font-bold my-3'>One Step <br />Closer To Your <br /><span className='text-amber-500'>Daily Cooking</span></h1>

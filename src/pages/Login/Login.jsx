@@ -3,7 +3,6 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
     const { handleGoogleSignIn, handleGithubSignIn, signIn, successToast} = useContext(AuthContext);
@@ -11,7 +10,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
-
+    //Google Login
     const googleSignin = () => {
         handleGoogleSignIn()
             .then(result => {
@@ -22,6 +21,7 @@ const Login = () => {
                 setErrormsg(error.message)
             })
     }
+    //Github Login
     const githubSignin = () => {
         handleGithubSignIn()
             .then(result => {
@@ -33,12 +33,12 @@ const Login = () => {
                 setErrormsg(error.message)
             })
     }
+    // Email Password Login
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-
         signIn(email, password)
             .then(result => {
                 setErrormsg('')
@@ -62,7 +62,6 @@ const Login = () => {
     }
     return (
         <div className='flex justify-center items-center' style={{}}>
-            <ToastContainer></ToastContainer>
             <div className='p-5 m-5 md:w-1/5 rounded-xl' style={{ border: '2px solid rgb(255, 255, 153)' }}>
                 {
                     (errormsg.length>2)&&<p style={{border:'1px solid red'}} className='text-center text-red-500 text-sm my-1 font-semibold rounded-md'>{errormsg}</p>

@@ -10,8 +10,8 @@ const Register = () => {
     const from = location.state?.from?.pathname || '/'
     const { createUser, updateUserData, logOut, successToast } = useContext(AuthContext);
     const [errormsg, setErrormsg] = useState('');
-    //Email Password Register
 
+    //Email Password Register
     const handleRegister = (event) => {
         event.preventDefault();
         setErrormsg('')
@@ -20,18 +20,18 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-
+        //Password Length Check
         if (password.length < 6) {
             setErrormsg('Password should be more than six characters')
             return;
         }
-
+        // Register With Emaill pass function
         createUser(email, password)
             .then(userCredential => {
                 successToast('Registration Successfull');
                 event.target.reset();
                 updateUserData(userCredential.user, name, photo)
-                logOut()
+                logOut(false)
                 navigate('/login')
             })
             .catch(error => {
@@ -44,6 +44,7 @@ const Register = () => {
             })
     }
     return (
+        // Register page
         <div className='flex justify-center items-center' style={{}}>
             <div className='p-5 m-5 md:w-1/5 rounded' style={{ border: '2px solid rgb(255, 255, 153)' }}>
                 {
