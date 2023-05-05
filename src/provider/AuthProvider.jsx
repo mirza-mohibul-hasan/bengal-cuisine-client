@@ -5,6 +5,7 @@ import {
     GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile
 } from "firebase/auth";
 import app from '../firebase/firebase.config';
+import { toast } from 'react-toastify';
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -33,7 +34,7 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
     //Github Signin
-    const handleGithubSignIn = ()=>{
+    const handleGithubSignIn = () => {
         setLoading(true);
         return signInWithPopup(auth, githubProvider)
     }
@@ -45,6 +46,7 @@ const AuthProvider = ({ children }) => {
 
     const logOut = () => {
         setLoading(true);
+        successToast('Logout Successfull')
         return signOut(auth);
     }
     useEffect(() => {
@@ -58,6 +60,30 @@ const AuthProvider = ({ children }) => {
             unsubscribe();
         }
     }, [])
+    const successToast = (message) => {
+        toast.success(`${message}`, {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
+    const errorToast = (message) => {
+        toast.error(`${message}`, {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
 
     const authInfo = {
         user,
@@ -67,7 +93,9 @@ const AuthProvider = ({ children }) => {
         logOut,
         handleGoogleSignIn,
         handleGithubSignIn,
-        updateUserData
+        updateUserData,
+        successToast,
+        errorToast
     }
     return (
         <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

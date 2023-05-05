@@ -17,15 +17,15 @@ const Home = () => {
                 </div>
             </div>
             {/* Chef card */}
-            <h1 className='text-amber-500 text-2xl text-center font-bold my-2 pt-5' style={{ borderTop: '2px solid yellow' }}>Famous Bengali Chefs</h1>
+            <h1 className='mx-3 md:mx-56 text-amber-500 text-3xl underline text-center font-bold my-2 pt-5' style={{ borderTop: '2px solid yellow' }}>Famous Bengali Chefs</h1>
             <div className='mt-4 mx-3 py-5 md:mx-56 grid grid-cols-1 md:grid-cols-2 gap-5' >
                 {
                     chefs.map(chef => <ChefCard key={chef.id} chef={chef}></ChefCard>)
                 }
             </div>
             {/* Marquie extra section */}
-            <div className='mt-4 mx-3 md:mx-56 my-3 py-3' style={{ borderTop: '2px solid yellow' }}>
-                <h1 className='text-amber-500 text-2xl text-center font-bold'>Latest Recipe From Chefs</h1>
+            <div className=' mx-3 md:mx-56 mb-3 mt-5 py-3' style={{ borderTop: '2px solid yellow' }}>
+                <h1 className='text-amber-500 text-3xl underline text-center font-bold my-2'>Latest Recipe From Chefs</h1>
                 <Marquee>
                     <div className='border p-3 rounded m-3 bg-amber-100' style={{ border: '2px solid rgb(255, 255, 153)' }}>
                         <img className='h-36 rounded ' src={chefs[0].recipes[0].recipeImage} alt="" />
@@ -46,7 +46,7 @@ const Home = () => {
                 </Marquee>
             </div>
             <div className='mt-5 mx-3 md:mx-56 py-5 shadow-2xl rounded' style={{ borderTop: '2px solid yellow' }}>
-                <h1 className='text-amber-500 text-2xl text-center font-bold my-2'>Some Coocking Tips</h1>
+                <h1 className='text-amber-500 text-3xl underline text-center font-bold my-2'>Some Coocking Tips</h1>
                 <div className='flex flex-col-reverse md:flex-row justify-center items-center'>
                     <div className='md:w-[50%] m-3 md:ms-10'>
                         <h4>1. Read the Entire Recipe</h4>
